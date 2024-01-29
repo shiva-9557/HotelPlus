@@ -112,7 +112,9 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render("./listings/error.ejs", { message });
 });
 
-
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+});
 
 app.listen(port,()=>{
     console.log("connected");
