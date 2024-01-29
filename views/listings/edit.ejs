@@ -1,0 +1,49 @@
+<% layout("/layouts/boilerplate")%> 
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+    <h3 class="fh">Edit your listing</h3>
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-lable">Title</label>
+        <input type="text" name="listing[title]" value="<%= listing.title %>" class="form-control" required>
+        <div class="invalid-feedback">Enter title</div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-lable">Description</label>
+        <textarea name="listing[description]"  cols="30" rows="10" class="form-control" placeholder="Enter description" required><%= listing.description %></textarea>
+                <div class="invalid-feedback">Enter information</div>
+
+        </div>
+<div class="mb-3">
+    Original Listing Image <br>
+    <img src="<%= oi %>" alt="image">
+</div>
+
+        <div class="mb-3">
+            <label for="Image" class="form-lable">Upload New Image</label>
+        <input type="file" class="form-control" name="listing[image]" value="<%= listing.image %>">
+        
+        </div>
+<div class="row">
+    <div class="mb-3 col-md-4">
+        <label for="price" class="form-lable">Price</label>
+    <input type="number" class="form-control" name="listing[price]" value="<%= listing.price %>" required>
+    <div class="invalid-feedback">Enter price</div>
+    </div>
+    <div class="mb-3 col-md-8">
+        <label for="country" class="form-lable">Country</label>
+    <input type="text" class="form-control" name="listing[country]" value="<%= listing.country %>" required>
+    <div class="invalid-feedback">Enter country</div>
+    </div>
+</div>
+
+        
+        <div class="mb-3">
+            <label for="location" class="form-lable">Location</label>
+        <input type="text" class="form-control" name="listing[location]" value="<%= listing.location %>" required>
+        <div class="invalid-feedback">Enter location</div>
+        </div>
+        <button class="btn btn-dark edit-btn mt-3">Edit</button>
+    </form>
+</div>
+</div>
